@@ -1,0 +1,12 @@
+[user]
+	email = jervisw@mailinator.com
+	name = Jervis Whitley
+[push]
+	default = simple
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+[core]
+	editor = vim
