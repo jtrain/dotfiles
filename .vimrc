@@ -12,7 +12,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'python.vim'
 
 Plugin 'plasticboy/vim-markdown'
-Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'scrooloose/syntastic'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jtrain/django-tmux'
 Plugin 'ervandew/screen'
 
@@ -108,8 +109,8 @@ let g:ctrlp_user_command = {
   \ }
 
 " django tmux
-let g:tmux_djangotest_manage_py="python ../manage.py"
-let g:tmux_djangotest_file_prefix="source ../bin/activate &&"
+let g:tmux_djangotest_manage_py="python manage.py"
+let g:tmux_djangotest_file_prefix="source bin/activate &&"
 
 let g:ScreenImpl="Tmux"
 let g:ScreenShellTmuxInitArgs = '-2'
@@ -117,3 +118,14 @@ let g:ScreenShellQuitOnVimExit = 1
 map <Leader>q :ScreenQuit<CR>
 
 noremap <C-b> :python run_django_test()<CR>
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
