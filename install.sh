@@ -10,8 +10,7 @@ function doIt() {
 
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         vim +PluginInstall +qall
-        sudo apt-get install pyflakes
-
+        pip install --user flake8
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
