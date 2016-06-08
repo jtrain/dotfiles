@@ -11,6 +11,7 @@ function doIt() {
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
         vim +PluginInstall +qall
         pip install --user flake8
+        ln -s ~/.local/bin ~/bin
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
