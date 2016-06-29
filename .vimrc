@@ -118,6 +118,16 @@ let g:ScreenShellQuitOnVimExit = 1
 map <Leader>q :ScreenQuit<CR>
 
 noremap <C-b> :python run_django_test()<CR>
+" Statusline
+set statusline=
+set statusline=%f
+set statusline+=%M
+set statusline+=%r
+set statusline+=%h
+set statusline+=%=
+set statusline+=%c,
+set statusline+=%l
+set statusline+=\ %p%%
 
 " Syntastic
 set statusline+=%#warningmsg#
