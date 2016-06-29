@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'python.vim'
 
+Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'scrooloose/syntastic'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -92,6 +93,9 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+" markdown
+let g:vim_markdown_folding_disabled = 1
 
 " django html
 au BufRead,BufNewFile *.html set filetype=htmldjango
