@@ -15,14 +15,18 @@ function doIt() {
 }
 
 function sshKeyToGithub() {
-    ssh-keygen -t rsa -b 4096 -C "jervisw@whit.com.au"
-    curl -u jtrain https://api.github.com/user/keys \
-        -d "{\"title\": \"vagrant\", \"key\": \"$(cat ~/.ssh/id_rsa.pub)\"}"
+    ssh-keygen -t rsa -b 4096 -C "jervisw@mailinator.com"
+    read -s -p "github token: " token
+    curl \
+        -H "Authorization: token $token" \
+        -H "Content-Type: application/json" \
+        -d "{\"title\": \"vagrant $(date)\", \"key\": \"$(cat ~/.ssh/id_rsa.pub)\"}" \
+        https://api.github.com/user/keys
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
     doIt;
-    sshKey;
+    sshKeyToGithub;
 else
     read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
     echo "";
@@ -31,3 +35,4 @@ else
     fi;
 fi;
 unset doIt;
+unset sshKeyToGithub;
