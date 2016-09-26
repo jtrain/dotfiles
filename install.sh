@@ -15,12 +15,12 @@ function doIt() {
 }
 
 function sshKeyToGithub() {
-    ssh-keygen -t rsa -b 4096 -C "jervisw@mailinator.com"
+    ssh-keygen -t ed25519 -a 100 -C "jervisw@mailinator.com"
     read -s -p "github token: " token
     curl \
         -H "Authorization: token $token" \
         -H "Content-Type: application/json" \
-        -d "{\"title\": \"vagrant $(date)\", \"key\": \"$(cat ~/.ssh/id_rsa.pub)\"}" \
+        -d "{\"title\": \"vagrant $(date)\", \"key\": \"$(cat ~/.ssh/id_ed25519.pub)\"}" \
         https://api.github.com/user/keys
 }
 
