@@ -115,6 +115,7 @@ let g:ctrlp_user_command = {
 " django tmux
 let g:tmux_djangotest_manage_py="python manage.py"
 let g:tmux_djangotest_file_prefix="source bin/activate &&"
+let g:tmux_djangotest_test_cmd="test --keepdb"
 
 let g:ScreenImpl="Tmux"
 let g:ScreenShellTmuxInitArgs = '-2'
