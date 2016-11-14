@@ -9,7 +9,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
+
 Plugin 'python.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
@@ -145,3 +148,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
 let g:syntastic_python_flake8_args = "--max-complexity 10"
+
+" for webpack
+autocmd BufNewFile,BufRead *.jsx set spell set backupcopy=yes
