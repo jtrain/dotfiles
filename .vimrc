@@ -150,4 +150,4 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_python_flake8_args = "--max-complexity 10"
 
 " for webpack
-autocmd BufNewFile,BufRead *.jsx set spell set backupcopy=yes
+autocmd FileType javascript.jsx,javascript set backupcopy=yes
