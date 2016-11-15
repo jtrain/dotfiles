@@ -11,7 +11,16 @@ function doIt() {
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
     pip install --user flake8
-    ln -s ~/.local/bin ~/bin
+
+    # now time for jsx
+    echo "prefix=$HOME/node" > ~/.npmrc
+
+    npm install -g eslint
+
+    mkdir -p ~/bin
+
+    ln -s ~/.local/bin/* ~/bin/
+    ln -s ~/node/bin/* ~/bin/
 }
 
 function sshKeyToGithub() {

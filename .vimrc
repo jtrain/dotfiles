@@ -149,5 +149,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
 let g:syntastic_python_flake8_args = "--max-complexity 10"
 
+let g:syntastic_javascript_checkers = ['eslint']
+
 " for webpack
 autocmd FileType javascript.jsx,javascript set backupcopy=yes
+autocmd FileType javascript.jsx set filetype=javascript
