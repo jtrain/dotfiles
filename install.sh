@@ -16,6 +16,7 @@ function doIt() {
     echo "prefix=$HOME/node" > ~/.npmrc
 
     npm install -g eslint
+    npm install -g eslint-plugin-react
 
     mkdir -p ~/bin
 
