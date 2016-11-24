@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-unimpaired'
 
 Plugin 'python.vim'
 Plugin 'pangloss/vim-javascript'
