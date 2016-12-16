@@ -154,4 +154,3 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " for webpack
 autocmd FileType javascript.jsx,javascript set backupcopy=yes
-autocmd FileType javascript.jsx set filetype=javascript
