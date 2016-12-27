@@ -19,9 +19,6 @@ function doIt() {
     npm install -g eslint-plugin-react
 
     mkdir -p ~/bin
-
-    ln -s ~/.local/bin/* ~/bin/
-    ln -s ~/node/bin/* ~/bin/
 }
 
 function sshKeyToGithub() {
@@ -36,12 +33,16 @@ function sshKeyToGithub() {
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
     doIt;
+    ln -s $HOME/.local/bin/* $HOME/bin/;
+    ln -s $HOME/node/bin/* $HOME/bin/;
     sshKeyToGithub;
 else
     read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
     echo "";
     if [[ $REPLY =~ ^[Yy]$ ]]; then
             doIt;
+            ln -s $HOME/.local/bin/* $HOME/bin/;
+            ln -s $HOME/node/bin/* $HOME/bin/;
     fi;
 fi;
 unset doIt;
