@@ -22,7 +22,7 @@ function doIt() {
 }
 
 function sshKeyToGithub() {
-    ssh-keygen -t ed25519 -a 100 -C "jervisw@mailinator.com"
+    ssh-keygen -t ed25519 -a 100 -C "jtrain@users.noreply.github.com"
     read -s -p "github token: " token
     curl \
         -H "Authorization: token $token" \
