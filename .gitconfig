@@ -8,5 +8,7 @@
 	ci = commit
 	st = status
 	br = branch
+        diffc = diff --cached
+        pick = add -p
 [core]
 	editor = vim
