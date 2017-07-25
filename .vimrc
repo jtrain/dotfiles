@@ -127,7 +127,7 @@ let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellQuitOnVimExit = 1
 map <Leader>q :ScreenQuit<CR>
 
-noremap <C-b> :python run_django_test()<CR>
+noremap <C-b> :Python2or3 run_django_test()<CR>
 " Statusline
 set statusline=
 set statusline=%f
