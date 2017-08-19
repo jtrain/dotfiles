@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'python.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'flowtype/vim-flow'
 
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
@@ -155,3 +156,13 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " for webpack
 autocmd FileType javascript.jsx,javascript set backupcopy=yes
+
+"Use locally installed flow
+let local_flow = finddir('node_modules', '*/**') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
+let g:flow#autoclose = 1
