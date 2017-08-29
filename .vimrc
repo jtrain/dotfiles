@@ -15,7 +15,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'python.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'flowtype/vim-flow'
 
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
@@ -145,6 +144,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -152,10 +152,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
 let g:syntastic_python_flake8_args = "--max-complexity 10"
 
-let g:syntastic_javascript_checkers = ['eslint']
-
-" for webpack
-autocmd FileType javascript.jsx,javascript set backupcopy=yes
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
 
 "Use locally installed flow
 let local_flow = finddir('node_modules', '*/**') . '/.bin/flow'
@@ -163,6 +160,8 @@ if matchstr(local_flow, "^\/\\w") == ''
     let local_flow= getcwd() . "/" . local_flow
 endif
 if executable(local_flow)
-  let g:flow#flowpath = local_flow
+    let g:syntastic_javascript_flow_exec = local_flow
 endif
-let g:flow#autoclose = 1
+
+" for webpack
+autocmd FileType javascript.jsx,javascript set backupcopy=yes

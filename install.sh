@@ -17,6 +17,7 @@ function doIt() {
 
     npm install -g eslint
     npm install -g eslint-plugin-react
+    npm install -g eslint-plugin-flowtype
 
     mkdir -p ~/bin
 }
