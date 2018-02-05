@@ -8,6 +8,7 @@
 	ci = commit
 	st = status
 	br = branch
+        logp = log -p
         diffc = diff --cached
         diffs = diff master --stat
         pick = add -p
