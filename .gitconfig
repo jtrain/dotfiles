@@ -12,6 +12,8 @@
         diffc = diff --cached
         diffs = diff master --stat
         pick = add -p
+        pullp = pull -p
         recent = for-each-ref --sort=committerdate refs/remotes --format='%(HEAD) %(objectname:short) %(color:yellow)%(refname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+        ff = "!git merge --ff-only origin/$1"
 [core]
 	editor = vim
