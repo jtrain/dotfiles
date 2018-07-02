@@ -21,6 +21,9 @@ function doIt() {
     npm install -g eslint-plugin-flowtype
 
     mkdir -p ~/bin
+
+    # for webpack to increase watchers
+    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 }
 
 function sshKeyToGithub() {
