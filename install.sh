@@ -8,6 +8,13 @@ function doIt() {
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" \
             -avh --no-perms . ~;
 
+    if [ -x "$(command -v apt)" ]; then
+        # install new vim
+        sudo add-apt-repository ppa:jonathonf/vim
+        sudo apt update
+        sudo apt install vim
+    fi
+
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
     pip install --user flake8
@@ -23,7 +30,9 @@ function doIt() {
     mkdir -p ~/bin
 
     # for webpack to increase watchers
-    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    if [ -f /etc/sysctl.conf ]; then
+        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    fi
 }
 
 function sshKeyToGithub() {

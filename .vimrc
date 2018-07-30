@@ -18,7 +18,7 @@ Plugin 'mxw/vim-jsx'
 
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jtrain/django-tmux'
 Plugin 'ervandew/screen'
@@ -139,20 +139,11 @@ set statusline+=%c,
 set statusline+=%l
 set statusline+=\ %p%%
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Ale
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-let g:syntastic_python_flake8_args = "--max-complexity 10"
-
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
+let g:ale_lint_on_text_changed = 'never'
 
 "Use locally installed flow
 let local_flow = finddir('node_modules', '*/**') . '/.bin/flow'
@@ -160,7 +151,7 @@ if matchstr(local_flow, "^\/\\w") == ''
     let local_flow= getcwd() . "/" . local_flow
 endif
 if executable(local_flow)
-    let g:syntastic_javascript_flow_exec = local_flow
+    let g:ale_javascript_flow_executable = local_flow
 endif
 
 " for webpack
