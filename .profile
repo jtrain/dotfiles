@@ -22,6 +22,8 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 GPG_TTY=$(tty)
 export GPG_TTY
 
-if [ -f "$HOME/.git-completion.bash" ]; then
-    . "$HOME/.git-completion.bash"
+if [ -z "$(type -p)" ]; then
+    if [ -f "$HOME/.git-completion.bash" ]; then
+        . "$HOME/.git-completion.bash"
+    fi
 fi
