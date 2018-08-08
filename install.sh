@@ -19,6 +19,9 @@ function doIt() {
     vim +PluginInstall +qall
     pip install --user flake8
 
+    # git complete
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$HOME/.git-completion.bash"
+
     # now time for jsx
     echo "prefix=$HOME/node" > ~/.npmrc
 
