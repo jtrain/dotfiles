@@ -9,7 +9,7 @@
 	st = status
 	br = branch
         brm = branch --merged
-        logp = log master... -p --reverse
+        movie = log master... -p --reverse
         diffc = diff --cached
         diffs = diff master --stat
         pick = add -p
