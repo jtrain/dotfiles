@@ -8,7 +8,8 @@
 	ci = commit
 	st = status
 	br = branch
-        logp = log -p
+        brm = branch --merged
+        logp = log master... -p --reverse
         diffc = diff --cached
         diffs = diff master --stat
         pick = add -p
