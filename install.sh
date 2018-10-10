@@ -40,7 +40,7 @@ function doIt() {
 
     mkdir -p ~/bin
 
-    virtualenv -p python3 ~
+    virtualenv -p python3.6 ~
     ~/bin/pip install --user flake8
 }
 
