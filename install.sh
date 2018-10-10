@@ -26,7 +26,6 @@ function doIt() {
 
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
-    pip install --user flake8
 
     # git complete
     curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o "$HOME/.git-completion.bash"
@@ -41,6 +40,8 @@ function doIt() {
 
     mkdir -p ~/bin
 
+    virtualenv -p python3 ~
+    ~/bin/pip install --user flake8
 }
 
 function sshKeyToGithub() {
