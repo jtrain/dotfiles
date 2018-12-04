@@ -9,6 +9,8 @@
 	st = status
 	br = branch
         brm = branch --merged
+        ignore = update-index --assume-unchanged
+        unignore = update-index --no-assume-unchanged
         movie = log master... -p --reverse
         diffc = diff --cached
         diffs = diff master --stat
