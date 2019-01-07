@@ -41,7 +41,7 @@ function doIt() {
     mkdir -p ~/bin
 
     virtualenv -p python3.6 ~
-    ~/bin/pip install --user flake8
+    ~/bin/pip install flake8
 }
 
 function sshKeyToGithub() {
