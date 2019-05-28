@@ -19,6 +19,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'w0rp/ale'
+Plugin 'python/black'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jtrain/django-tmux'
 Plugin 'ervandew/screen'
@@ -156,3 +157,6 @@ endif
 
 " for webpack
 autocmd FileType javascript.jsx,javascript set backupcopy=yes
+
+" Black autosave
+autocmd BufWritePre *.py execute ':Black'
