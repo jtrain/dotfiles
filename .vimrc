@@ -50,6 +50,7 @@ set nomodeline
 
 " make benefit case insensitive searches, except if capitals used
 set ignorecase
+set smartcase
 
 " turn on the ruler (show cursor position)
 set ruler
