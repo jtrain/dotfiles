@@ -74,6 +74,9 @@ set visualbell
 " having to press enter to continue
 set cmdheight=2
 
+" dont refresh screen during macro
+set lazyredraw
+
 " " INDENTATION SETTINGS
 
 set shiftwidth=4
