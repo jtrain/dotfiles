@@ -52,3 +52,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# also run the .profile since it doesn't seem to run when i sudo into my user.
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
