@@ -55,3 +55,6 @@ fi
 
 # also run the .profile since it doesn't seem to run when i sudo into my user.
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
+unsetopt complete_aliases
+fpath=(~/.zsh $fpath)
