@@ -8,13 +8,15 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'python.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'leafgarland/typescript-vim'
 
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
@@ -83,6 +85,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+let mapleader = ","
+
 " 2 spaces for html/css/less etc
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 softtabstop=2
@@ -93,6 +97,9 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 
 " <esc> really chaps my sack
 inoremap jk <esc>
+
+" accept C-6 for buffer switch
+noremap <C-6> gj
 
 " set up soft word wrapping
 set formatoptions=1
@@ -111,16 +118,8 @@ let g:vim_markdown_folding_disabled = 1
 au BufRead,BufNewFile *.html set filetype=htmldjango
 au BufRead,BufNewFile *.mustache set filetype=htmldjango
 
-" stop ctrlp.vim opening certain files
-"set wildignore+=*/tmp/*,*.so,*.o,*.lo,*.swp,*.zip,*.pyc
-let g:ctrlp_max_files = 0
-let g:ctrlp_user_command = {
-  \ 'types': {
-    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
-    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-    \ },
-  \ 'fallback': 'find %s -type f'
-  \ }
+" use fzf
+map <C-p> :GFiles<CR>
 
 " django tmux
 let g:tmux_djangotest_manage_py="python manage.py"
