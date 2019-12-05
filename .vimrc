@@ -119,7 +119,7 @@ au BufRead,BufNewFile *.html set filetype=htmldjango
 au BufRead,BufNewFile *.mustache set filetype=htmldjango
 
 " use fzf
-map <Leader>p :GFiles<CR>
+map [p :GFiles<CR>
 
 " django tmux
 let g:tmux_djangotest_manage_py="python manage.py"
@@ -129,9 +129,9 @@ let g:tmux_djangotest_test_cmd="test --keepdb"
 let g:ScreenImpl="Tmux"
 let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellQuitOnVimExit = 1
-map <Leader>q :ScreenQuit<CR>
+map [q :ScreenQuit<CR>
 
-noremap <Leader>b :Python2or3 run_django_test()<CR>
+noremap [b :Python2or3 run_django_test()<CR>
 " Statusline
 set statusline=
 set statusline=%f
