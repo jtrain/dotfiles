@@ -1,4 +1,7 @@
 # The following lines were added by compinstall
+if [ -e /mnt/procedureus ]; then
+    cd /mnt/procedureus
+fi
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/forum/.zshrc'
