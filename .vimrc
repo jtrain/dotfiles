@@ -163,6 +163,7 @@ autocmd FileType javascript.jsx,javascript set backupcopy=yes
 
 " Black autosave
 autocmd BufWritePre *.py execute ':Black'
+let g:black_virtualenv="~"
 
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow', 'flow-language-server'],
