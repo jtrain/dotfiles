@@ -15,8 +15,8 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
     if [ -z "$(type -p)" ]; then
-        if [ -f "$HOME/.git-completion.bash" ]; then
-            . "$HOME/.git-completion.bash"
+        if [ -f "$HOME/.git-completion.zsh" ]; then
+            . "$HOME/.git-completion.zsh"
         fi
     fi
 fi
