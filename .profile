@@ -14,11 +14,6 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
-    if [ -z "$(type -p)" ]; then
-        if [ -f "$HOME/.git-completion.zsh" ]; then
-            . "$HOME/.git-completion.zsh"
-        fi
-    fi
 fi
 
 # set PATH so it includes user's private bin directories

@@ -4,7 +4,10 @@ if [ -e /mnt/procedureus ]; then
 fi
 
 zstyle ':completion:*' completer _complete _ignored
+
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 zstyle :compinstall filename '/home/forum/.zshrc'
+fpath=(~/.zsh $fpath)
 
 autoload -Uz compinit
 compinit
@@ -60,4 +63,3 @@ fi
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 unsetopt complete_aliases
-fpath=(~/.zsh $fpath)

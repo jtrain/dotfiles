@@ -27,9 +27,6 @@ function doIt() {
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
 
-    # git complete
-    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh -o "$HOME/.git-completion.zsh"
-
     # now time for jsx
     echo "prefix=$HOME/node" > ~/.npmrc
 
