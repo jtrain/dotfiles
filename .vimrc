@@ -158,6 +158,9 @@ if executable(local_flow)
     let g:ale_javascript_flow_executable = local_flow
 endif
 
+" nicer mypy call with useful error codes
+let g:ale_python_mypy_options = '--show-error-codes'
+
 " for webpack
 autocmd FileType javascript.jsx,javascript set backupcopy=yes
 

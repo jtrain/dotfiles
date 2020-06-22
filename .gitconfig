@@ -20,3 +20,5 @@
         ff = "!git merge --ff-only origin/$1"
 [core]
 	editor = vim
+[diff]
+        algorithm = histogram
