@@ -94,6 +94,8 @@ autocmd FileType mustache setlocal shiftwidth=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 softtabstop=2
 autocmd FileType less setlocal shiftwidth=2 softtabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
+autocmd FileType typescriptreact setlocal shiftwidth=2 softtabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 softtabstop=2
 
 " <esc> really chaps my sack
 inoremap jk <esc>
