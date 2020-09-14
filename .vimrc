@@ -123,6 +123,9 @@ au BufRead,BufNewFile *.mustache set filetype=htmldjango
 " use fzf
 map [p :GFiles<CR>
 
+" grep for selected word
+nnoremap [g :Ggrep! <cword><CR>
+
 " django tmux
 let g:tmux_djangotest_manage_py="python manage.py"
 let g:tmux_djangotest_file_prefix="source bin/activate &&"
@@ -174,3 +177,20 @@ let g:ale_linters = {
 \   'javascript': ['eslint', 'flow', 'flow-language-server'],
 \   'javascript.jsx': ['eslint', 'flow', 'flow-language-server'],
 \}
+
+let g:ale_fixers = {
+\  'javascript': ['prettier'],
+\  'javascript.jsx': ['prettier'],
+\  'typescriptreact': ['prettier'],
+\  'typescript': ['prettier'],
+\  'css': ['prettier'],
+\}
+
+let g:ale_fix_on_save = 1
+let local_prettier = finddir('node_modules', '*/**') . '/.bin/prettier'
+if matchstr(local_prettier, '^\/\\w') == ''
+    let local_prettier = getcwd() . "/" . local_prettier
+endif
+if executable(local_prettier)
+    let g:ale_javascript_prettier_executable = local_prettier
+endif
