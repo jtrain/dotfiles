@@ -113,6 +113,9 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" a way to get current folder name
+cabbr <expr> %% expand('%:p:h')
+
 " markdown
 let g:vim_markdown_folding_disabled = 1
 
