@@ -18,6 +18,7 @@
         pullp = pull -p
         recent = for-each-ref --sort=committerdate refs/remotes --format='%(HEAD) %(objectname:short) %(color:yellow)%(refname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
         ff = "!git merge --ff-only origin/$1"
+        oneline = log --pretty=format:'%C(auto)%h%d %s %C(red)%aN %C(green)%ad' --date=relative
 [core]
 	editor = vim
 [diff]
