@@ -37,7 +37,7 @@ function doIt() {
 
     mkdir -p ~/bin
 
-    virtualenv -p python3.6 ~
+    virtualenv -p python3.8 ~
     ~/bin/pip install flake8 flake8-bugbear black mypy
 }
 
