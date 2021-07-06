@@ -124,7 +124,7 @@ au BufRead,BufNewFile *.html set filetype=htmldjango
 au BufRead,BufNewFile *.mustache set filetype=htmldjango
 
 " use fzf
-map [p :GFiles<CR>
+map [p :GFiles --exclude-standard --others --cached<CR>
 
 " grep for selected word
 nnoremap [g :Ggrep! <cword><CR>
