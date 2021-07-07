@@ -125,6 +125,7 @@ au BufRead,BufNewFile *.mustache set filetype=htmldjango
 
 " use fzf
 map [p :GFiles --exclude-standard --others --cached<CR>
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 
 " grep for selected word
 nnoremap [g :Ggrep! <cword><CR>
