@@ -159,10 +159,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 'never'
 
 "Use locally installed flow
-let local_flow = finddir('node_modules', '*/**') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
+let nodebin = finddir('.bin', '**')
+let local_flow = findfile('flow', nodebin)
 if executable(local_flow)
     let g:ale_javascript_flow_executable = local_flow
 endif
@@ -191,10 +189,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
-let local_prettier = finddir('node_modules', '*/**') . '/.bin/prettier'
-if matchstr(local_prettier, '^\/\\w') == ''
-    let local_prettier = getcwd() . "/" . local_prettier
-endif
+let local_prettier = findfile('prettier', nodebin)
 if executable(local_prettier)
     let g:ale_javascript_prettier_executable = local_prettier
 endif
