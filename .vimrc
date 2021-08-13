@@ -176,9 +176,13 @@ autocmd FileType javascript.jsx,javascript set backupcopy=yes
 autocmd BufWritePre *.py execute ':Black'
 let g:black_virtualenv="~"
 
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_linters = {
+\   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint', 'flow', 'flow-language-server'],
 \   'javascript.jsx': ['eslint', 'flow', 'flow-language-server'],
+\   'typescript': ['eslint', 'tsserver'],
+\   'typescriptreact': ['eslint', 'tsserver'],
 \}
 
 let g:ale_fixers = {
