@@ -12,6 +12,7 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-fugitive'
+Plugin 'kshenoy/vim-signature'
 
 Plugin 'python.vim'
 Plugin 'pangloss/vim-javascript'
