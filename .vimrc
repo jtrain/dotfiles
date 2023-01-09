@@ -160,10 +160,6 @@ let g:ale_lint_on_text_changed = 'never'
 
 "Use locally installed flow
 let nodebin = finddir('.bin', '**')
-let local_flow = findfile('flow', nodebin)
-if executable(local_flow)
-    let g:ale_javascript_flow_executable = local_flow
-endif
 
 " nicer mypy call with useful error codes
 let g:ale_python_mypy_options = '--show-error-codes'
@@ -185,10 +181,10 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
-\  'javascript': ['prettier'],
-\  'javascript.jsx': ['prettier'],
-\  'typescriptreact': ['prettier'],
-\  'typescript': ['prettier'],
+\  'javascript': ['eslint'],
+\  'javascript.jsx': ['eslint'],
+\  'typescriptreact': ['eslint'],
+\  'typescript': ['eslint'],
 \  'css': ['prettier'],
 \}
 
