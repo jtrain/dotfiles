@@ -16,8 +16,6 @@ Plugin 'kshenoy/vim-signature'
 
 Plugin 'python.vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'leafgarland/typescript-vim'
 
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'plasticboy/vim-markdown'
