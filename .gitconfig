@@ -17,7 +17,7 @@
         pick = add -p
         pullp = pull -p
         recent = for-each-ref --sort=committerdate refs/remotes --format='%(HEAD) %(objectname:short) %(color:yellow)%(refname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
-        ff = "!git merge --ff-only origin/$1"
+        ff = "!git merge --ff-only FETCH_HEAD"
         oneline = log --pretty=format:'%C(auto)%h%d %s %C(red)%aN %C(green)%ad' --date=relative
         merged = branch -r --sort=committerdate --format='%(HEAD) %(objectname:short) %(color:yellow)%(refname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' --merged master
         notmerged = branch -r --sort=committerdate --format='%(HEAD) %(objectname:short) %(color:yellow)%(refname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' --no-merged master
