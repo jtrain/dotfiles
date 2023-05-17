@@ -24,12 +24,53 @@
         peep = "!f() { if [ -z \"${1##*[!0-9]*}\" ]; then lines=10; else lines=\"$1\"; shift; fi; git grep -B 2 -A $lines \"$@\"; }; f"
         leadup = "!f() { if [ -z \"$1\" ]; then echo 'Please provide a commit hash.'; else AUTHOR=$(git show -s --format='%an' \"$1\"); for commit in $(git log --pretty=format:'%h' --author=\"$AUTHOR\" \"$1\"~6..\"$1\"~1); do echo '\\n\\e[90m'$commit'\\e[0m' $(git show -s --format='%s \\e[32m(%ar)\\e[0m' $commit); git diff --stat $commit^..$commit; done | less -R; fi; }; f"
 
-
-
-
-
-
-
+        deploy = "!sh -c '\
+            CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD); \
+            if [ $(git rev-list --count $CURRENT_BRANCH..master) -ne 0 ]; then \
+                echo \"Current branch has not merged the latest from master. Please merge master into your branch.\"; \
+                exit 1; \
+            fi; \
+            if [ $(git rev-list --count $CURRENT_BRANCH@{u}..) -ne 0 ]; then \
+                echo \"Current branch has local commits that have not been pushed. Please push your changes.\"; \
+                exit 1; \
+            fi; \
+            FILES=$(git diff --name-only master...); \
+            REACT=0; \
+            MIGRATION=0; \
+            PYTHON_OR_HTML=0; \
+            CSS_OR_LESS=0; \
+            REQUIREMENTS=0; \
+            for file in $FILES; do \
+                case \"$file\" in \
+                    *.js|*.jsx|*.ts|*.tsx|*.json) \
+                        REACT=1 ;; \
+                    migrations/*) \
+                        MIGRATION=1 ;; \
+                    *.py|*.html) \
+                        PYTHON_OR_HTML=1 ;; \
+                    *.css|*.less) \
+                        CSS_OR_LESS=1 ;; \
+                    requirements/prod.txt) \
+                        REQUIREMENTS=1 ;; \
+                esac; \
+            done; \
+            if [ $REACT -eq 1 ]; then \
+                echo react; \
+                if [ $MIGRATION -eq 1 ]; then \
+                    echo reactmigrate; \
+                fi; \
+                if [ $CSS_OR_LESS -eq 1 ]; then \
+                    echo reactcompress; \
+                fi; \
+            elif [ $MIGRATION -eq 1 ]; then \
+                echo app.getsource django.migrate supervisor.restart; \
+            elif [ $PYTHON_OR_HTML -eq 1 ]; then \
+                echo app.getsource supervisor.restart; \
+            fi; \
+            if [ $REQUIREMENTS -eq 1 ]; then \
+                echo app.getsource virtualenv.install supervisor.restart; \
+            fi' \
+        "
 
 [core]
 	editor = vim
