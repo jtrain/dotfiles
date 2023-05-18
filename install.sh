@@ -7,7 +7,7 @@ git pull origin master;
 function watchers() {
     # for webpack to increase watchers
     if [ -f /etc/sysctl.conf ]; then
-        echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+        printf "\nfs.inotify.max_user_watches=524288" | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
     fi
 }
 
