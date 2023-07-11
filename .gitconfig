@@ -23,6 +23,8 @@
         notmerged = branch -r --sort=committerdate --format='%(HEAD) %(objectname:short) %(color:yellow)%(refname:short)%(color:reset) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))' --no-merged master
         peep = "!f() { if [ -z \"${1##*[!0-9]*}\" ]; then lines=10; else lines=\"$1\"; shift; fi; git grep -B 2 -A $lines \"$@\"; }; f"
         leadup = "!f() { if [ -z \"$1\" ]; then echo 'Please provide a commit hash.'; else AUTHOR=$(git show -s --format='%an' \"$1\"); for commit in $(git log --pretty=format:'%h' --author=\"$AUTHOR\" \"$1\"~6..\"$1\"~1); do echo '\\n\\e[90m'$commit'\\e[0m' $(git show -s --format='%s \\e[32m(%ar)\\e[0m' $commit); git diff --stat $commit^..$commit; done | less -R; fi; }; f"
+        since = "!f() { git log -p --reverse --since=\"$(git log -1 --author=\"$1\" --format=%cd)\" --perl-regexp --author=\"^((?!$1).)*$\"; }; f"
+
 
         deploy = "!sh -c '\
             CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD); \
