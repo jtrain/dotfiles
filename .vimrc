@@ -194,3 +194,5 @@ let local_prettier = findfile('prettier', nodebin)
 if executable(local_prettier)
     let g:ale_javascript_prettier_executable = local_prettier
 endif
+
+command! -nargs=1 Copy saveas %:p:h/<args>
