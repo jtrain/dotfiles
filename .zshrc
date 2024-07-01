@@ -63,3 +63,26 @@ fi
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 unsetopt complete_aliases
+
+
+if [ -f /Users ]; then
+    # mac specific stuff.
+    export PATH=$PATH:/Users/whit/.spicetify
+
+    export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH"
+
+    if [ "$(arch)" = "arm64" ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
+
+
+    function gpg_cache() {
+        gpg-connect-agetn /bye &> /dev/null
+        eval $(op signin)
+        op item get zm2rihblcng4tde4xcbadyc24u --fields password | /opt/homebrew/opt/gpg2/libexec/gpg-preset-passphrase --preset 1168C79BD155B59F8F45BE309CACD7F0FBCCCDA7
+    }
+
+    gpg_cache
+fi
