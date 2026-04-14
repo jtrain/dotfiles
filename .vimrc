@@ -23,7 +23,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'dense-analysis/ale'
 Plugin 'python/black'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'jtrain/django-tmux'
 Plugin 'ervandew/screen'
 
 "color schemes
@@ -131,17 +130,11 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 " grep for selected word
 nnoremap [g :Ggrep! <cword><CR>
 
-" django tmux
-let g:tmux_djangotest_manage_py="python manage.py"
-let g:tmux_djangotest_file_prefix="source bin/activate &&"
-let g:tmux_djangotest_test_cmd="test --keepdb"
-
 let g:ScreenImpl="Tmux"
 let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellQuitOnVimExit = 1
 map [q :ScreenQuit<CR>
 
-noremap [b :Python2or3 run_django_test()<CR>
 " Statusline
 set statusline=
 set statusline=%f
@@ -174,7 +167,7 @@ let g:black_virtualenv="~"
 
 let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
 let g:ale_linters = {
-\   'python': ['flake8', 'mypy'],
+\   'python': ['ruff', 'mypy'],
 \   'javascript': ['eslint', 'flow', 'flow-language-server'],
 \   'javascript.jsx': ['eslint', 'flow', 'flow-language-server'],
 \   'typescript': ['eslint', 'tsserver'],
@@ -182,12 +175,17 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
 \  'javascript': ['eslint'],
 \  'javascript.jsx': ['eslint'],
 \  'typescriptreact': ['eslint'],
 \  'typescript': ['eslint'],
 \  'css': ['prettier'],
+\  'python': ['ruff_format', 'isort', 'ruff'],
 \}
+
+let g:ale_python_ruff_options = '--line-length=88 --select I,E,F,W,UP,PYI' " I = isort rules
+let g:ale_python_ruff_format_options = '--line-length=88'
 
 let g:ale_fix_on_save = 1
 let local_prettier = findfile('prettier', nodebin)
